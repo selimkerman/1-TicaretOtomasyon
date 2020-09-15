@@ -1,0 +1,47 @@
+﻿@using MvcTicaretOtomasyon.Models.Siniflar
+@model List<Urun>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h2>Urunler</h2>
+<table class="table table-bordered">
+    <tr>
+        <th>id</th>
+        <th>Ad</th>
+        <th>Marka</th>
+        <th>Stok</th>
+        <th>AlisFiyati</th>
+        <th>SatisFiyati</th>
+        <th>Durum</th>
+        <th>Kategori</th>
+        <th>Gorsel</th>
+        <th>Sil</th>
+        <th>Guncelle</th>
+
+    </tr>
+
+    @foreach (var urun in Model)
+    {
+        <tr>
+            <td>@urun.Urunid</td>
+            <td>@urun.UrunAd</td>
+            <td>@urun.Marka</td>
+            <td>@urun.Stok</td>
+            <td>@urun.AlisFiyat</td>
+            <td>@urun.SatisFiyat</td>
+            <td>@urun.Durum</td>
+            <td>@urun.Kategori.KategoriAd</td>
+            <td>@urun.UrunGorsel</td>
+            <td><a href="/Urun/UrunSil/@urun.Urunid" class="btn btn-danger"> Sil </a>  </td>
+            <td><a href="/Urun/UrunGetir/@urun.Urunid" class="btn btn-primary"> Guncelle </a>  </td>
+        </tr>
+
+    }
+
+</table>
+
+<a href="/Urun/YeniUrun" class="btn btn-primary"> Urun Ekle</a>
+
+

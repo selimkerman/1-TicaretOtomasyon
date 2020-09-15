@@ -1,0 +1,52 @@
+﻿@using MvcTicaretOtomasyon.Models.Siniflar
+@model List<Faturalar>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h2>Index</h2>
+
+
+<table class="table table-bordered" style="margin-top:20px">
+    <tr>
+        <th>ID</th>
+        <th>FaturaSeriNo</th>
+        <th>FaturaSiraNo</th>
+        <th>Tarih</th>
+        <th>VergiDairesi</th>
+        <th>Saat</th>
+        <th>Toplam</th>
+        <th>Teslim Eden</th>
+        <th>Teslim Alan</th>
+        <th>Guncelle</th>
+        <th> Detaylar </th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Faturaid </td>
+            <td>@item.FaturaSeriNo </td>
+            <td>@item.FaturaSiraNo </td>
+            <td>@item.Tarih </td>
+            <td>@item.VergiDairesi </td>
+            <td>@item.Saat </td>
+            <td>100 </td>
+            <td>@item.TeslimEden </td>
+            <td>@item.TeslimAlan </td>
+
+
+            
+            <td> <a href="/Departman/DepartmanGetir/@item.Faturaid" class="btn btn-primary" />güncelle </td>
+            <td> <a href="/Departman/DepartmanDetay/@item.Faturaid" class="btn btn-success" />Detay </td>
+
+        </tr>
+
+
+    }
+
+</table>
+
+<a href="/Fatura/FaturaEkle" class="btn btn-primary"> Fatura Ekle</a>
+
+

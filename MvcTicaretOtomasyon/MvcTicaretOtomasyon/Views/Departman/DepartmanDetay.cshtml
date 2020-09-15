@@ -1,0 +1,39 @@
+﻿@using MvcTicaretOtomasyon.Models.Siniflar
+@model List<Personel>
+
+@{
+    ViewBag.Title = "DepartmanDetay";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h2>DepartmanDetay</h2>
+
+<label class="breadcrumb"> Departman adi: @ViewBag.departmanAd</label>
+
+<table class="table table-hover">
+
+    <tr>
+        <th>Departmanid</th>
+        <th>PersonelAd</th>
+        <th>Departman</th>
+        <th>PersonelGorsel</th>
+        <th>Satislar</th>
+    </tr>
+
+    @foreach (var personel in Model)
+    {
+        <tr>
+            <td>@personel.Departmanid  </td>
+            <td>@personel.PersonelAd   </td>
+            <td>@personel.Departman.DepartmanAd   </td>
+            <td>@personel.PersonelGorsel   </td>
+
+
+
+            <td> <a href="/Departman/DepartmanSatislar/@personel.Personelid" class="btn btn-primary"> Satislar </a></td>
+        </tr>
+    }
+
+
+
+</table>

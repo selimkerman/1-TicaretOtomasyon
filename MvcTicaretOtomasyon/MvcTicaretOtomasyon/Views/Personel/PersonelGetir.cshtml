@@ -1,0 +1,36 @@
+﻿@model MvcTicaretOtomasyon.Models.Siniflar.Personel
+@{
+    ViewBag.Title = "PersonelGetir";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h2>PersonelGetir</h2>
+
+
+@using (Html.BeginForm("PersonelGuncelle", "Personel", FormMethod.Post))
+{
+<div class="form-group">
+    @Html.LabelFor(item => item.PersonelAd)
+    @Html.TextBoxFor(item => item.PersonelAd)
+    @Html.HiddenFor(item => item.Personelid)
+
+    <br />
+    @Html.LabelFor(item => item.PersonelSoyad)
+    @Html.TextBoxFor(item => item.PersonelSoyad)
+
+    <br />
+
+    @Html.LabelFor(item => item.PersonelGorsel)
+    @Html.TextBoxFor(item => item.PersonelGorsel)
+    <br />
+
+    @Html.LabelFor(item => item.Departman.DepartmanAd)
+    @Html.DropDownListFor(item => item.Departmanid, (List<SelectListItem>)ViewBag.prsnl1)
+    
+    <br />
+</div>
+    <button class="btn btn-primary" style="background-color:green">personel Guncelle</button>
+}
+
+
+

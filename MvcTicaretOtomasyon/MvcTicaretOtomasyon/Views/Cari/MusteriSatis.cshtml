@@ -1,0 +1,54 @@
+﻿@using MvcTicaretOtomasyon.Models.Siniflar
+@model List<SatisHareket>
+@{
+    ViewBag.Title = "MusteriSatis";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h2>MusteriSatis</h2>
+
+
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb item active"> Musteri Adi:@ViewBag.cariAdSoyad </li>
+</ol>
+
+<table class="table table-bordered" style="margin-top:20px">
+    <tr>
+        <th>Satis ID</th>
+        <th>personel</th>
+        <th>urun Adi</th>
+        <th>TARİH </th>
+        <th>Adet</th>
+        <th>Fiyat</th>
+        <th>Toplam Tutar</th>
+        <th>Cari İd</th>
+
+        <th>Urun İd</th>
+        <th>Yazdir</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.SatisId </td>
+            <td>@item.Personels.PersonelAd  @item.Personels.PersonelSoyad</td>
+            <td>@item.Uruns.UrunAd </td>
+            <td>@item.Tarih </td>
+            <td>@item.Adet </td>
+            <td>@item.Fiyat </td>
+            <td>@item.ToplamTutar </td>
+            <td>@item.Cariid </td>
+            <td>@item.Personelid </td>
+
+            <td> <a href="#" class="btn btn-primary"> Yazdir</a></td>
+
+
+            @*<td> <a href="/Kategori/KategoriSil/@item.KategoriId" class="btn btn-danger" />sil </td>
+                <td> <a href="/Kategori/KategoriGetir/@item.KategoriId" class="btn btn-primary" />güncelle </td>*@
+
+        </tr>
+
+
+    }
+
+</table>
+

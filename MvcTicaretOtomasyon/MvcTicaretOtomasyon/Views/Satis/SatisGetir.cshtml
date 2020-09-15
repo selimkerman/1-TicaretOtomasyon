@@ -1,0 +1,54 @@
+﻿@model  MvcTicaretOtomasyon.Models.Siniflar.SatisHareket
+@{
+    ViewBag.Title = "SatisGetir";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+
+
+
+<h2>Satis Guncelleme</h2>
+<br />
+
+@using (Html.BeginForm("SatisGuncelle", "Satis", FormMethod.Post))
+{
+
+
+    @Html.LabelFor(item => item.Personels.PersonelAd)
+    @Html.DropDownListFor(item => item.Personelid, (List<SelectListItem>)ViewBag.personelSecimi)
+    @Html.HiddenFor(item => item.Personelid)
+    <br />
+
+    @Html.LabelFor(item => item.Uruns.UrunAd)
+    @Html.DropDownListFor(item => item.Urunid, (List<SelectListItem>)ViewBag.urunSecimi)
+    @Html.HiddenFor(item => item.Urunid)
+    <br />
+
+    @Html.LabelFor(item => item.Carilers.CariAd)
+    @Html.DropDownListFor(item => item.Cariid, (List<SelectListItem>)ViewBag.cariSecimi)
+    @Html.HiddenFor(item => item.Cariid)
+
+    <br />
+    @Html.LabelFor(item => item.Adet)
+    @Html.TextBoxFor(item => item.Adet)
+
+    <br />
+
+    @Html.LabelFor(item => item.Fiyat)
+    @Html.TextBoxFor(item => item.Fiyat)
+    <br />
+
+    @Html.LabelFor(item => item.ToplamTutar)
+    @Html.TextBoxFor(item => item.ToplamTutar)
+    @*@Html.DropDownListFor(item => item.Departmanid, (List<SelectListItem>)ViewBag.prsnl1)*@
+    <br />
+
+    @Html.LabelFor(item => item.Tarih)
+    @Html.TextBoxFor(item => item.Tarih)
+
+    <br />
+
+    <button class="btn btn-success">Guncelle</button>
+
+
+}

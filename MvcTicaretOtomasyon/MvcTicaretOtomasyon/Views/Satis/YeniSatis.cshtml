@@ -1,0 +1,39 @@
+﻿@model MvcTicaretOtomasyon.Models.Siniflar.SatisHareket
+@{
+    ViewBag.Title = "YeniSatis";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h2>Yeni  Satis</h2>
+
+
+<form class="form-group" method="post">
+
+
+    @Html.LabelFor(item => item.Uruns.UrunAd)
+    @Html.DropDownListFor(item => item.Urunid, (List<SelectListItem>)ViewBag.seciliUrun)
+    <br />
+
+    @Html.Label("Cari")
+    @Html.DropDownListFor(item => item.Cariid, (List<SelectListItem>)ViewBag.seciliCari)
+    <br />
+
+    @Html.Label("Personel")
+    @Html.DropDownListFor(item => item.Personelid, (List<SelectListItem>)ViewBag.seciliPersonel)
+    <br />
+
+    @Html.LabelFor(item => item.Adet)
+    @Html.TextBoxFor(item => item.Adet)
+    <br />
+
+    @Html.LabelFor(item => item.Fiyat)
+    @Html.TextBoxFor(item => item.Fiyat)
+    <br />
+
+    @Html.LabelFor(item => item.ToplamTutar)
+    @Html.TextBoxFor(item => item.ToplamTutar)
+    <br />
+
+    <button class="btn btn-primary">Satis Yap</button>
+</form>
+
